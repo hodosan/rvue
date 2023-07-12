@@ -30,6 +30,9 @@ gem "tailwindcss-rails"
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
 
+gem 'devise'
+gem "devise-i18n"
+gem "devise-i18n-views"
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 
