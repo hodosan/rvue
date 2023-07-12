@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  day: 2023-07-12
+  begin_time: 2023-07-12 09:05:56
+  close_time: 2023-07-12 09:05:56
+  interval_s: 2023-07-12 09:05:56
+  interval_e: 2023-07-12 09:05:56
+  unit_minute: 1
+  no_use: false
+
+two:
+  day: 2023-07-12
+  begin_time: 2023-07-12 09:05:56
+  close_time: 2023-07-12 09:05:56
+  interval_s: 2023-07-12 09:05:56
+  interval_e: 2023-07-12 09:05:56
+  unit_minute: 1
+  no_use: false

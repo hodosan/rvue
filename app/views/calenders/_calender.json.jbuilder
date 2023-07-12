@@ -1,0 +1,2 @@
+json.extract! calender, :id, :day, :begin_time, :close_time, :interval_s, :interval_e, :unit_minute, :no_use, :created_at, :updated_at
+json.url calender_url(calender, format: :json)

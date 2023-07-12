@@ -1,0 +1,42 @@
+<div id="<%= dom_id calender %>">
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Day:</strong>
+    <%= calender.day %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Begin time:</strong>
+    <%= calender.begin_time %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Close time:</strong>
+    <%= calender.close_time %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Interval s:</strong>
+    <%= calender.interval_s %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Interval e:</strong>
+    <%= calender.interval_e %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Unit minute:</strong>
+    <%= calender.unit_minute %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">No use:</strong>
+    <%= calender.no_use %>
+  </p>
+
+  <% if action_name != "show" %>
+    <%= link_to "Show this calender", calender, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to 'Edit this calender', edit_calender_path(calender), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+    <hr class="mt-6">
+  <% end %>
+</div>
