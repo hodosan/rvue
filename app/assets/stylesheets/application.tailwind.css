@@ -11,3 +11,10 @@
 }
 
 */
+.new_btn {
+  @apply rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium
+}
+
+.lnk_btn {
+  @apply rounded-lg py-3 px-5 inline-block font-medium bg-gray-100
+}
