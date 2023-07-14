@@ -5,7 +5,7 @@
 
   <div class="flex justify-between items-center">
     <h1 class="font-bold text-4xl">ルーム一覧</h1>
-    <%= link_to '新規ルーム作成', new_room_path, class: "new_btn" %>
+    <%= link_to '新規ルーム作成', new_room_path, class: "new_btn" if admin_signed_in? %>
   </div>
 
   <div id="rooms" class="min-w-full">
