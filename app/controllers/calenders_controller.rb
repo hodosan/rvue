@@ -1,9 +1,20 @@
 class CalendersController < ApplicationController
   before_action :set_calender, only: %i[ show edit update destroy ]
 
+  include CalenderData
+
   # GET /calenders or /calenders.json
   def index
     @calenders = Calender.all
+    month = params[:month]
+    calender_for_view(month)
+
+    regulation    = Regulation.last
+    @begin_time   = regulation.begin_time
+    @close_time   = regulation.close_time
+    @interval_s   = regulation.interval_s
+    @interval_e   = regulation.interval_e
+    @unit_minute  = regulation.unit_minute
   end
 
   # GET /calenders/1 or /calenders/1.json
@@ -13,6 +24,12 @@ class CalendersController < ApplicationController
   # GET /calenders/new
   def new
     @calender = Calender.new
+    @calender.day         = params[:day] 
+    @calender.begin_time  = params[:day] + 'T' + params[:begin_time]
+    @calender.close_time  = params[:day] + 'T' + params[:close_time]
+    @calender.interval_s  = params[:day] + 'T' + params[:interval_s]
+    @calender.interval_e  = params[:day] + 'T' + params[:interval_e]
+    @calender.unit_minute = params[:unit_minute]
   end
 
   # GET /calenders/1/edit
@@ -25,7 +42,7 @@ class CalendersController < ApplicationController
 
     respond_to do |format|
       if @calender.save
-        format.html { redirect_to calender_url(@calender), notice: "Calender was successfully created." }
+        format.html { redirect_to calenders_url, notice: "Calender was successfully created." }
         format.json { render :show, status: :created, location: @calender }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +55,7 @@ class CalendersController < ApplicationController
   def update
     respond_to do |format|
       if @calender.update(calender_params)
-        format.html { redirect_to calender_url(@calender), notice: "Calender was successfully updated." }
+        format.html { redirect_to calenders_url, notice: "Calender was successfully updated." }
         format.json { render :show, status: :ok, location: @calender }
       else
         format.html { render :edit, status: :unprocessable_entity }

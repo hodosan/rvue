@@ -10,35 +10,45 @@
       </ul>
     </div>
   <% end %>
+  <%= form.hidden_field :day %>
 
   <div class="my-5">
     <%= form.label :day %>
-    <%= form.date_field :day, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    <%  wd = ["日", "月", "火", "水", "木", "金", "土"] %>
+    <%= content_tag(:div, calender.day.strftime("%Y年%m月%d日 (#{wd[calender.day.wday]})"), class: "frm_ln") %>
   </div>
 
   <div class="my-5">
-    <%= form.label :begin_time %>
-    <%= form.datetime_field :begin_time, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    <%= form.label :begin_time %><br>
+    <%= form.datetime_select :begin_time,
+        {discard_year: true, discard_month: true, discard_day: true, minute_step: calender.unit_minute},
+        class: "frm_ln_noblock" %>
   </div>
 
   <div class="my-5">
-    <%= form.label :close_time %>
-    <%= form.datetime_field :close_time, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    <%= form.label :close_time %><br>
+    <%= form.datetime_select :close_time,
+        {discard_year: true, discard_month: true, discard_day: true, minute_step: calender.unit_minute},
+        class: "frm_ln_noblock" %>
   </div>
 
   <div class="my-5">
-    <%= form.label :interval_s %>
-    <%= form.datetime_field :interval_s, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    <%= form.label :interval_s %><br>
+    <%= form.datetime_select :interval_s,
+        {discard_year: true, discard_month: true, discard_day: true, minute_step: calender.unit_minute},
+        class: "frm_ln_noblock" %>
   </div>
 
   <div class="my-5">
-    <%= form.label :interval_e %>
-    <%= form.datetime_field :interval_e, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    <%= form.label :interval_e %><br>
+    <%= form.datetime_select :interval_e,
+        {discard_year: true, discard_month: true, discard_day: true, minute_step: calender.unit_minute},
+        class: "frm_ln_noblock" %>
   </div>
 
   <div class="my-5">
     <%= form.label :unit_minute %>
-    <%= form.number_field :unit_minute, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    <%= form.number_field :unit_minute,step: 15, min: 15, max: 30, class: "frm_ln" %>
   </div>
 
   <div class="my-5">
@@ -47,6 +57,6 @@
   </div>
 
   <div class="inline">
-    <%= form.submit class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
+    <%= form.submit class: "frm_btn bg-blue-600" %>
   </div>
 <% end %>
