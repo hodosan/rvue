@@ -3,7 +3,7 @@ class RegulationsController < ApplicationController
 
   # GET /regulations or /regulations.json
   def index
-    @regulations = Regulation.last
+    @regulation = Regulation.last
   end
 
   # GET /regulations/1 or /regulations/1.json

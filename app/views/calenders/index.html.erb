@@ -83,4 +83,37 @@
     </table>
   </div>
 
+  <table class="table-auto mb-10">
+    <thead>
+      <tr>
+        <th class="px-4 py-2">日付</th>
+        <th class="px-4 py-2">開始</th>
+        <th class="px-4 py-2">終了</th>
+        <th class="px-4 py-2">昼休開始</th>
+        <th class="px-4 py-2">昼休終了</th>
+        <th class="px-4 py-2">単位：分</th>
+        <th class="px-4 py-2">休み</th>
+        <th class="px-4 py-2"></th>
+        <th class="px-4 py-2"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @calenders.each do |cal| %>
+        <% if cal.day >= @today %>
+          <tr>
+            <td class="border px-4 py-2"><%= cal.day %></td>
+            <td class="border px-4 py-2"><%= cal.begin_time.strftime("%R") %></td>
+            <td class="border px-4 py-2"><%= cal.close_time.strftime("%R") %></td>
+            <td class="border px-4 py-2"><%= cal.interval_s.strftime("%R") %></td>
+            <td class="border px-4 py-2"><%= cal.interval_e.strftime("%R") %></td>
+            <td class="border px-4 py-2"><%= cal.unit_minute %></td>
+            <td class="border px-4 py-2"><%= cal.no_use %></td>
+            <td class="border px-4 py-2"><%= link_to '編集', edit_calender_path(cal), class: "frm_btn bg-gray-400" %></td>
+            <td class="border px-4 py-2"><%= button_to '削除', calender_path(cal), method: :delete, class: "frm_btn bg-red-400" %></td>
+          </tr>
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+
 </div>
