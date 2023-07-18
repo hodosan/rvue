@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-  resources :occupations
+  resources :occupations   do
+    collection do
+      get :of_tday
+    end
+  end
   resources :regulations
   resources :calenders
   resources :rooms
