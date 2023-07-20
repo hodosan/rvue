@@ -159,8 +159,8 @@ const NewOccupation = {
     },
     deleteOwn(ev) {
       //console.log(ev.target.getAttribute('value'));
-      let oid = ev.target.getAttribute('value')
-      let res = window.confirm("削除してよろしいですか？");
+      const oid = ev.target.getAttribute('value')
+      const res = window.confirm("削除してよろしいですか？");
       if (!res) {
         return
       };

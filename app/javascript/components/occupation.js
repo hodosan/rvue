@@ -54,7 +54,7 @@ export const Occupation = {
         })
       })
       .then(response => response.json())
-      .then(data =>console.log(data))
+      //.then(data =>console.log(data))
       .then(() => {
         this.occupation.frmFlag = false;
         this.onFormSubmited();
