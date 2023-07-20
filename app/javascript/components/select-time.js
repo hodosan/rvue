@@ -62,7 +62,7 @@ export const SelectTime = {
       }
     },
     onClick(mn, ev) {
-      let point = this.mnscale[mn];
+      const point = this.mnscale[mn];
       if (this.start >= 0 && this.end > this.start) {
         return;
       }
@@ -115,17 +115,13 @@ export const SelectTime = {
       return res;
     },
     checkBetweenMn(start, end, touch) {
-      console.log(`start ${start} ${end} ${touch}`); 
-      console.log(`mnscale ${JSON.stringify(this.mnscale)}`);
       let paintStart = start;
       if (touch) {
         paintStart = start + 1;
       } 
       for (let inx = paintStart; inx <= end; inx++) {
         let mn = this.getKeyByValue(this.mnscale, inx);
-        console.log(`inx ${inx} mn ${mn}`); 
         if (touch) {
-          //this.$refs[mn][0].classList.remove('bg-green-400');
           this.$refs[mn][0].classList.add('bg-blue-400');
           if (this.$refs[mn][0].classList.contains('bg-green-200')){
             this.$refs[mn][0].classList.remove('bg-green-200');

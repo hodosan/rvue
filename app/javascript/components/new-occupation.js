@@ -115,7 +115,7 @@ const NewOccupation = {
         .then(response => response.json())
         .then(data => {
           this.reservedList = data.reserved_list;
-          console.log(`reservedList= ${JSON.stringify(this.reservedList)}`);
+          //console.log(`reservedList= ${JSON.stringify(this.reservedList)}`);
         });
     },
     selectAgain() {
