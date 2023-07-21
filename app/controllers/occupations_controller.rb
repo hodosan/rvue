@@ -40,6 +40,11 @@ class OccupationsController < ApplicationController
     #p @reserved_list
   end
 
+  def admin
+    @occupations = Occupation.all
+    @today       = Date.today
+  end
+
 # GET /occupations/1 or /occupations/1.json
   def show
   end
