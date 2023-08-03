@@ -6,9 +6,9 @@
 
     <%= render @room %>
 
-    <%= link_to '編集', edit_room_path(@room), class: "mt-2 lnk_btn" %>
+    <%= link_to '編集', edit_room_path(@room), class: "mt-2 lnk_btn" if admin_signed_in?  %>
     <div class="inline-block ml-2">
-      <%= button_to '削除', room_path(@room), method: :delete, class: "mt-2 lnk_btn" %>
+      <%= button_to '削除', room_path(@room), method: :delete, class: "mt-2 lnk_btn" if admin_signed_in?  %>
     </div>
     <%= link_to '戻る', rooms_path, class: "ml-2 lnk_btn" %>
   </div>
